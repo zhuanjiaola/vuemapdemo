@@ -1,16 +1,23 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Hello from '../components/Hello.vue'
-import Hello2 from '../components/Hello2.vue'
-import Hello3 from '../components/Hello3.vue'
+import Hello from '../components/HelloWorld.vue'
+import Overlay from '../components/Overlay.vue'
+import MyOverlayView from '../views/MyOverlayView.vue'
+import D from '../components/3D.vue'
+import gl from '../components/gl.vue'
+import APITest from '../components/APITest.vue'
 
 
 Vue.use(VueRouter)
 
   const routes = [
+      {path:'/',redirect:'/hello'},
       {path:'/hello',component:Hello},
-      {path:'/hello2',component:Hello2},
-      {path:'/hello3',component:Hello3}
+      {path:'/overlay',component:Overlay},
+      {path:'/myOverlayView',component:MyOverlayView},
+      {path:'/3d',component:D},
+      {path:'/gl',component:gl},
+      {path:'/apitest',component:APITest}
 
 ]
 
