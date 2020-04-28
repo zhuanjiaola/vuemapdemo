@@ -7,6 +7,8 @@ import D from '../components/convert/3D.vue'
 import gl from '../components/gl.vue'
 import APITest from '../components/convert/APITest.vue'
 import BeatPointer from '../components/convert/BeatPointer.vue'
+import DrawLine from '../components/convert/DrawLine.vue'
+import BmView from '../components/BmView.vue'
 
 
 Vue.use(VueRouter)
@@ -19,7 +21,9 @@ Vue.use(VueRouter)
       {path:'/3d',component:D},
       {path:'/gl',component:gl},
       {path:'/apitest',component:APITest},
-      {path:'/beatpointer',component:BeatPointer}
+      {path:'/beatpointer',component:BeatPointer},
+      {path:'/drawline',component:DrawLine},
+      {path:'/bmview',component:BmView}
 
 ]
 

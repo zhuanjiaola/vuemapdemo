@@ -1,5 +1,7 @@
 <template>
-    <div id="map_container"></div>
+    <div class="drawer">
+        <div id="map_container" style="width:100%; height:500px;"></div>
+    </div>
 </template>
 
 <script>
@@ -11,7 +13,6 @@ export default {
         }
     },
     mounted() {
-        let that = this
         var map = new BMap.Map('map_container', {enableMapClick: false});
         map.setMapStyle({
             style: 'midnight'
@@ -20,11 +21,10 @@ export default {
         map.enableScrollWheelZoom(true); // 开启鼠标滚轮缩放
 
         var view = new mapvgl.View({mapType: 'bmap', map: map});
-        fetch('../static/car.csv').then(function (rs) {
+        fetch('../static/car.csv').then(rs => {
             return rs.text();
-        }).then(function (csvstr) {
-
-            that.test(csvstr);
+        }).then(csvstr => {
+            this.test(csvstr);
         })
     },
     methods: {
@@ -51,13 +51,13 @@ export default {
             }
             console.log(coordinates);
 
-            var pointLayer = new mapvgl.PointLayer({
-                blend: 'lighter',
-                mapType: 'bmap',
-                color: 'rgba(255, 255, 50, 0.8)',
-                size: 2
-            });
-            view.addLayer(pointLayer);
+            // var pointLayer = new mapvgl.PointLayer({
+            //     blend: 'lighter',
+            //     mapType: 'bmap',
+            //     color: 'rgba(255, 255, 50, 0.8)',
+            //     size: 2
+            // });
+            // view.addLayer(pointLayer);
             pointLayer.setData(newData);
         }
     }
@@ -66,14 +66,6 @@ export default {
 
 </script>
 <style scoped>
-    html,
-    body {
-        width: 100%;
-        height: 100%;
-        margin: 0;
-        padding: 0;
-    }
-
     #map_container {
         width: 100%;
         height: 500px;
