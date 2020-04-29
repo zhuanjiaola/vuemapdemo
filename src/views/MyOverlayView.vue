@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import MyOverlay from '../components/MyOverlay.vue'
+import MyOverlay from '../components/baidu/MyOverlay.vue'
 export default {
     data () {
         return {

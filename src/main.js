@@ -5,7 +5,9 @@ import store from './store'
 import './plugins/element.js'
 import mapv from 'mapv';
 import mapvgl from 'mapvgl';
+import echarts from 'echarts'
 
+Vue.prototype.$echarts = echarts
 Vue.config.productionTip = false
 // Vue.use(mapv)
 // Vue.use(mapvgl)

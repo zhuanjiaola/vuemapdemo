@@ -1,10 +1,12 @@
 <template>
     <div class="drawer">
-        <div id="map_container" style="width:100%; height:500px;"></div>
+        <div id="map_container"></div>
     </div>
 </template>
 
 <script>
+import {mapvgl} from 'mapvgl';
+import {mapv} from 'mapv';
 
 export default {
     data() {
@@ -20,7 +22,6 @@ export default {
         map.centerAndZoom(new BMap.Point(106.563777, 29.578285), 13); // 初始化地图,设置中心点坐标和地图级别
         map.enableScrollWheelZoom(true); // 开启鼠标滚轮缩放
 
-        var view = new mapvgl.View({mapType: 'bmap', map: map});
         fetch('../static/car.csv').then(rs => {
             return rs.text();
         }).then(csvstr => {
@@ -29,6 +30,7 @@ export default {
     },
     methods: {
         test(csvstr) {
+            var view = new mapvgl.View({mapType: 'bmap', map: map});
             var dataSet = mapv.csv.getDataSet(csvstr);
             var data = dataSet.get();
             dataSet.transferCoordinate(data, function (coord) {
@@ -68,7 +70,7 @@ export default {
 <style scoped>
     #map_container {
         width: 100%;
-        height: 500px;
+        height: 900px;
         margin: 0;
     }
 </style>
